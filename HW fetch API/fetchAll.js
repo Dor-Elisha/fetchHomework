@@ -1,11 +1,12 @@
+// Function that will make respone from url 
 function getData(url) {
     return fetch(url).then(res => res.json())
 }
-
+// URL 
 const urlPosts = 'https://jsonplaceholder.typicode.com/posts'
 const urlUsers = 'https://jsonplaceholder.typicode.com/users'
 const urlComments = 'https://jsonplaceholder.typicode.com/comments'
-
+// Making object that contains the json array
 getData(urlPosts).then((posts) => {
     getData(urlUsers).then(users => {
         getData(urlComments).then(comments => {
@@ -24,14 +25,14 @@ function createAPost(data) {
         // Creating elements for the div
         const postDiv = document.createElement('div');
         const title = document.createElement('h3');
-        const bodyText = document.createElement('a');
+        const bodyText = document.createElement('p');
 
         // Getting indexText to every arry in the arrys opbject
         title.innerText = post.title
         bodyText.innerText = post.body
 
         // Making body text to href, 'a' element that navigate to the single
-        bodyText.href = `singlePage.html?postId=${post.id}`
+        
         
         // Making the post
         // Gettine username by id
@@ -46,6 +47,16 @@ function createAPost(data) {
         })
         postDiv.appendChild(title);
         postDiv.appendChild(bodyText);
+
+        // Making btn for comments and navigate to full single page- post
+        const a = document.createElement('a');
+        const btn = document.createElement('button');
+        a.href = `singlePage.html?postId=${post.id}`;
+        btn.innerText = "Comments";
+        btn.classList.add('btn');
+        btn.classList.add('btnC');
+        a.appendChild(btn)
+        postDiv.appendChild(a);
 
 
         // Making the div post

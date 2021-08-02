@@ -7,78 +7,99 @@
 body {
     width: 100%;
     height: 100%;
+    background-color: #0C2D48;
 }
-/* Style for header */
+/* Header Style */
 header {
     width: 100%;
-    height: 3rem;
-    background-color: rgb(4, 42, 167);
+    height: 6rem;
+    background-color: #B1D4E0;
     text-align: center;
-    color: white;
-    font-size: 2rem;
-    
+    color: #0C2D48;
+    font-family: 'Bebas Neue', cursive;
+    position: relative;
+    padding: 0.5rem;
+    overflow: hidden;
 }
+header > h1 {
+    width: 100%;
+    font-size: 4rem;
+    position: absolute;
+    margin: 0 auto;
+    opacity: .8;
+}
+/* Main Style */
 main {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-top: 1.5%;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
 }
-h1 {
-    font-size: 3rem;
-    border-bottom: 0.125rem black solid;
-}
-/* Style for the single post */
-#post {
-    width: 50%;
+
+#post{
+    width: 100%;
     margin-top: 1%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 .post {
-    width: 100%;
+    width:50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    border: 0.125rem black solid;
+    background-color: #145DA0;
+    border: 0.5rem white solid;
     padding: 1%;
     font-size: 1rem;
-    text-align: center;
+    margin-bottom: 6rem;
+    overflow: hidden;
 }
-.post h2 {
-    border-bottom: 1px black solid;
-    justify-self: self-start;
-    margin-bottom: 0.5rem;
+.post *::first-letter {
+    text-transform: uppercase;
+}
+.post > h2:first-of-type {
+    width: 100%;
+    font-size: 1.5rem;
+    order: 2;
+    font-style: italic;
+    opacity: .5;
 }
 .post h3 {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    width: 100%;
+    order: 1;
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
 }
-.post > p {
-    text-align: center;
-    padding: 2%;
-    border: 1px black solid;
-    margin-bottom: 4rem;
+.post p {
+    width: 100%;
+    order: 3;
+    padding: 0.5rem;
+    background-color: #B1D4E0;
+    color: black;
+    margin-top: 0.75rem;
+    flex: 1;
 }
-/* Style for comments */
+.post h2:nth-of-type(2) {
+    width: 100%;
+    font-size: 2rem;
+    color: black;
+    order: 4;
+}
+/* Comments Style  */
 .comment {
-    width: 70%;
-    border: 1px solid red;
-    padding: 1%;
-    margin-bottom: 2%;
+    width: 100%;
+    order: 5;
 }
 .comment > h4 {
-    width: fit-content;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px black solid;
+    font-style: italic;
 }
 .comment > p {
-    padding: 0.8rem 0;
-
-}
-/* Style for footer */
-footer {
-    text-align: center;
-    margin-top: 2%;
+    margin-top: inherit;
+    margin-bottom: 2%;
 }

@@ -6,11 +6,12 @@ const postID = urlParams.get('postId')
 function getData(url) {
     return fetch(url).then(res => res.json())
 }
-
+// URL
 const urlPosts = 'https://jsonplaceholder.typicode.com/posts'
 const urlUsers = 'https://jsonplaceholder.typicode.com/users'
 const urlComments = 'https://jsonplaceholder.typicode.com/comments'
 
+// Making object that contains the json array
 getData(urlPosts).then((posts) => {
     getData(urlUsers).then(users => {
         getData(urlComments).then(comments => {
@@ -22,8 +23,13 @@ getData(urlPosts).then((posts) => {
 })
 
 function createAPost(data) {
+    // Removing div that show contant when nothing load
+    const div = document.getElementById('ddntLoad')
+    div.style.display = "none";
+    // Starting loop to create the post for the post who get clicked
     data.posts.map(post => {
         const main = document.getElementById('post');
+        // Matching post id to post id to get the right information
         if (postID == post.id) {
             
             // Creating elements for the div
@@ -34,14 +40,14 @@ function createAPost(data) {
             // Getting indexText to every arry in the arrys opbject
             title.innerText = post.title
             bodyText.innerText = post.body
-            commentsIndx.innerText = `Comments:`
+            commentsIndx.innerText = `Comments`
             // Making the post
             // Gettine username by id
             data.users.map(user => {
                 if (post.userId === user.id) {
                     // Making h2 element that have the user name index   
                     userName = document.createElement('h2');
-                    userName.innerText = `From: ${user.name}`;
+                    userName.innerText = user.name;
 
                     postDiv.appendChild(userName)
                 }
@@ -58,10 +64,8 @@ function createAPost(data) {
                     const commentUserName = document.createElement('h4')
                     const commentText = document.createElement('p');
                     // Getting index
-                    commentUserName.innerText = `Name: 
-                    ${comment.name}`
-                    commentText.innerText = `Says:
-                     ${comment.body}`
+                    commentUserName.innerText = comment.name
+                    commentText.innerText = comment.body
                     // Making the section
                     commentSection.appendChild(commentUserName)
                     commentSection.appendChild(commentText)
