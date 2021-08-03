@@ -1,7 +1,7 @@
 // Getting parameters from url 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const postID = urlParams.get('postId')
+let postID = urlParams.get('postId')
 
 function getData(url) {
     return fetch(url).then(res => res.json())
@@ -24,14 +24,14 @@ getData(urlPosts).then((posts) => {
 
 function createAPost(data) {
     // Removing div that show contant when nothing load
-    const div = document.getElementById('ddntLoad')
-    div.style.display = "none";
+    // removediv()
     // Starting loop to create the post for the post who get clicked
     data.posts.map(post => {
         const main = document.getElementById('post');
         // Matching post id to post id to get the right information
         if (postID == post.id) {
-            
+            // Removing div that show contant when nothing load
+            removediv()
             // Creating elements for the div
             const postDiv = document.createElement('div');
             const title = document.createElement('h3');
@@ -81,11 +81,13 @@ function createAPost(data) {
 
             // adding classes for dsn
             postDiv.classList.add('post')
-
-            // Adding comments
-            
-        } else {
-            console.log('error but good');
+            } else { 
+            console.log("No ID");
         }
     })
 };
+// Function that remove the div that show contant when nothing load
+function removediv() {
+    const div = document.getElementById('ddntLoad')
+    div.style.display = "none";
+}

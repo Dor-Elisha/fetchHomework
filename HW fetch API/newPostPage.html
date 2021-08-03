@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WritePost</title>
+    <script type="text/javascript" src="newPostScript.js"></script>
     <link rel="stylesheet" href="newPost.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@100;400&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -23,23 +27,43 @@
                             <input type="text" id="titleText" maxlength="100" required>
                         </fieldset>
                         <fieldset>
-                            <label for="author">Author Name:</label>
-                            <input type="text" id="author" maxlength="30" required>
+                            <label for="authorText">Author Name:</label>
+                            <input type="text" id="authorText" maxlength="30" required>
                         </fieldset>
                         <fieldset>
-                            <label for="postBody">PostBody:</label>
-                            <textarea cols="30" rows="10"></textarea>
+                            <label for="bodyText">PostBody:</label>
+                            <textarea cols="30" rows="10" id="bodyText"></textarea>
                         </fieldset>
                         <fieldset>
-                            <a href=""><button class="btn">Make Post</button></a>
+                            <a><button class="btn" onclick="makeAPost(event)">Make Post</button></a>
                         </fieldset>
                     </form>
                 </div>
             </section>
+            <!-- Will show only if clicked on "Make Post" button -->
+            <div id="finalPost">
+                <div class="black"></div>
+                <section id="finalPost-Start">
+                    <header id="finalPost-header">
+                    <h1>Your post will look like this:</h1>
+                    <button id="close" onclick="closePopup()">X</button>
+                </header>
+                <main id="finalPost-Main">
+                    <section id="finalPost-Result">
+                        <h2 id="finalPost-Title">text</h2>
+                        <h3 id="finalPost-author">text</h3>
+                        <p id="finalPost-body">text</p>
+                    </section>
+                    <button id="publish" class="btn" onclick="createPost()">Publish</button>
+                </section>
+                
+                </main>
+            </div>
         </main>
         <footer>
 
         </footer>
     </div>
 </body>
+
 </html>

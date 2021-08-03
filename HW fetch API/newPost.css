@@ -104,3 +104,91 @@ section {
 .btn:focus {
     filter: opacity(1);
 }
+/* POPUP finalPost style  */
+#finalPost {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.black::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#finalPost-Start{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 75%;
+    /* padding: 10rem; */
+    z-index: 3;
+    background-color: #0C2D48;
+}
+#finalPost-header {
+    display: flex;
+    margin-bottom: 10%;
+}
+#finalPost-header > button {
+    width: 2rem;
+    height: 2rem;
+    border: white 3px solid;
+    background-color: grey;
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+#finalPost-header > button:hover{
+    background-color: black;
+}
+#finalPost-header > button:focus{
+    background-color: grey;
+}
+/* final post result style */
+#finalPost-Result {
+    width: 70%;
+    min-height: 40vh;
+    background-color:#2E8BC0;
+    border: 5px white solid;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.5%;
+}
+#finalPost-Result *::first-letter{
+    text-transform: uppercase;
+}
+#finalPost-Title{
+    width: 100%;
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+}
+#finalPost-author{
+    width: 100%;
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: .5;
+}
+#finalPost-body{
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #B1D4E0;
+    color: black;
+    margin-top: 0.75rem;
+    flex: 1;
+}
